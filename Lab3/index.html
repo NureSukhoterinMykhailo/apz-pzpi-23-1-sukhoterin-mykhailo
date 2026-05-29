@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LifeBalance Web LR3</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="logo">LB</span><div><b>LifeBalance</b><small data-i18n="subtitle">well-being control</small></div></div>
+      <nav class="side-nav">
+        <button data-page="dashboard" class="nav active">📊 <span data-i18n="dashboard">Дашборд</span></button>
+        <button data-page="habits" class="nav">✅ <span data-i18n="habits">Звички</span></button>
+        <button data-page="goals" class="nav">🎯 <span data-i18n="goals">Цілі</span></button>
+        <button data-page="analytics" class="nav">📈 <span data-i18n="analytics">Аналітика</span></button>
+        <button data-page="settings" class="nav">⚙️ <span data-i18n="settings">Налаштування</span></button>
+        <button data-page="admin" class="nav admin-only">🛡️ <span data-i18n="admin">Адмін</span></button>
+      </nav>
+      <div class="profile-card">
+        <span class="avatar">M</span>
+        <div><b id="profileName">Mykhailo</b><small id="profileRole">User</small></div>
+      </div>
+    </aside>
+
+    <main class="content">
+      <header class="topbar">
+        <div><h1 id="pageTitle">LifeBalance</h1><p id="today"></p></div>
+        <div class="top-actions">
+          <input id="globalSearch" data-i18n-placeholder="search" placeholder="Пошук..." />
+          <select id="langSelect"><option value="uk">UA</option><option value="en">EN</option></select>
+          <select id="roleSelect"><option value="user" data-i18n="roleUser">Користувач</option><option value="admin" data-i18n="roleAdmin">Адмін</option></select>
+          <button id="themeToggle">🌙</button>
+        </div>
+      </header>
+
+      <section id="dashboard" class="page active-page">
+        <div class="cards stats">
+          <div class="card"><h3 data-i18n="completedToday">Виконано сьогодні</h3><strong id="completedToday">0</strong><span>/ <span id="totalHabits">0</span></span></div>
+          <div class="card"><h3 data-i18n="bestStreak">Найкраща серія</h3><strong id="bestStreak">0</strong><span data-i18n="days">днів</span></div>
+          <div class="card"><h3 data-i18n="balance">Баланс</h3><strong id="balanceScore">0%</strong><div class="meter"><span id="balanceBar"></span></div></div>
+          <div class="card"><h3 data-i18n="mood">Настрій</h3><strong id="moodScore">🙂</strong><input id="moodRange" type="range" min="1" max="5" value="4" /></div>
+        </div>
+        <div class="grid two">
+          <div class="card"><h2 data-i18n="weeklyProgress">Тижневий прогрес</h2><canvas id="progressCanvas" width="760" height="260"></canvas></div>
+          <div class="card"><h2 data-i18n="aiInsight">AI-інсайт</h2><p id="aiInsightText"></p><button id="generateInsight" data-i18n="generate">Згенерувати</button></div>
+        </div>
+      </section>
+
+      <section id="habits" class="page">
+        <div class="panel-title"><h2 data-i18n="habitManager">Менеджер звичок</h2><button id="resetDemo" data-i18n="resetDemo">Скинути демо</button></div>
+        <form id="habitForm" class="form-grid">
+          <input id="habitTitle" required data-i18n-placeholder="habitTitlePlaceholder" placeholder="Назва звички" />
+          <select id="habitCategory"><option value="Sleep" data-i18n="catSleep">Сон</option><option value="Sport" data-i18n="catSport">Спорт</option><option value="Nutrition" data-i18n="catNutrition">Харчування</option><option value="Productivity" data-i18n="catProductivity">Продуктивність</option><option value="Mindfulness" data-i18n="catMindfulness">Усвідомленість</option></select>
+          <select id="habitPriority"><option value="low" data-i18n="priorityLow">Низький</option><option value="medium" data-i18n="priorityMedium">Середній</option><option value="high" data-i18n="priorityHigh">Високий</option></select>
+          <button data-i18n="add">Додати</button>
+        </form>
+        <div class="toolbar"><select id="habitFilter"><option value="all" data-i18n="all">Усі</option><option value="Sleep" data-i18n="catSleep">Сон</option><option value="Sport" data-i18n="catSport">Спорт</option><option value="Nutrition" data-i18n="catNutrition">Харчування</option><option value="Productivity" data-i18n="catProductivity">Продуктивність</option><option value="Mindfulness" data-i18n="catMindfulness">Усвідомленість</option></select><select id="habitSort"><option value="title" data-i18n="sortTitle">Назва</option><option value="category" data-i18n="sortCategory">Категорія</option><option value="streak" data-i18n="sortStreak">Серія</option></select></div>
+        <div id="habitList" class="habit-list"></div>
+      </section>
+
+      <section id="goals" class="page">
+        <div class="panel-title"><h2 data-i18n="goals">Цілі</h2><button id="addGoal" data-i18n="addGoal">Нова ціль</button></div>
+        <div id="goalsGrid" class="cards"></div>
+      </section>
+
+      <section id="analytics" class="page">
+        <div class="grid two">
+          <div class="card"><h2 data-i18n="categoryStats">Статистика категорій</h2><div id="categoryBars"></div></div>
+          <div class="card"><h2 data-i18n="eventsLog">Журнал подій</h2><div id="eventsLog" class="log"></div></div>
+        </div>
+      </section>
+
+      <section id="settings" class="page">
+        <div class="card settings-card"><h2 data-i18n="settings">Налаштування</h2><label><span data-i18n="name">Ім'я</span><input id="nameInput" /></label><label><span data-i18n="notifications">Сповіщення</span><input id="notificationsToggle" type="checkbox" checked /></label><label><span data-i18n="rtl">RTL-напрям тексту</span><input id="rtlToggle" type="checkbox" /></label><button id="saveSettings" data-i18n="save">Зберегти</button></div>
+      </section>
+
+      <section id="admin" class="page">
+        <div class="grid two">
+          <div class="card"><h2 data-i18n="users">Користувачі</h2><div class="toolbar"><input id="userSearch" data-i18n-placeholder="searchUser" placeholder="Пошук користувача" /><button id="sortUsers" data-i18n="sort">Сортувати</button></div><ul id="userList"></ul></div>
+          <div class="card"><h2 data-i18n="dataManagement">Керування даними</h2><button id="backupData" data-i18n="backup">Резервна копія</button><button id="exportData" data-i18n="export">Експорт</button><label class="file-btn"><span data-i18n="import">Імпорт</span><input type="file" id="importFile" accept="application/json" /></label><pre id="adminLog"></pre></div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <div id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
