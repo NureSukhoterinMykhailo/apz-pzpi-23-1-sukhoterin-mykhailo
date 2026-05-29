@@ -1,1 +1,170 @@
+МІНІСТЕРСТВО ОСВІТИ І НАУКИ УКРАЇНИ
+ХАРКІВСЬКИЙ НАЦІОНАЛЬНИЙ УНІВЕРСИТЕТ РАДІОЕЛЕКТРОНІКИ
+
+
+Кафедра «Програмної інженерії»
+
+
+
+ЗВІТ
+З лабораторної роботи №1
+З дисципліни «Аналіз вимог до програмного забезпечення» 
+«Доопрацювання Vision & Scope»
+
+
+	
+
+
+
+
+Харків 2026
+LifeBalance
+Vision & Scope
+
+1. System Name
+LifeBalance
+2. Short System Description
+LifeBalance is a web and mobile software system designed to help users maintain a healthy balance between productivity, rest, physical activity, sleep, and mental well-being. The platform allows users to track habits, analyze lifestyle statistics, set personal goals, receive reminders, and monitor long-term progress through interactive dashboards and analytics.
+
+The system consists of a backend server, database infrastructure, web client, mobile client, and support for IoT integrations with wearable devices and sensors. LifeBalance also includes administrative tools for system management and future support for artificial intelligence technologies.
+3. Scope and Limitations
+3.1 Scope of Initial Release
+
+The initial release of the LifeBalance system will include a complete ecosystem consisting of a backend server, web client, mobile client, database infrastructure, and IoT integration support for future device connectivity.
+
+The core purpose of the system is to help users maintain a healthy balance between productivity, rest, physical activity, sleep, and mental well-being through habit tracking, analytics, reminders, and personalized recommendations.
+
+The system architecture will include centralized backend server responsible for authentication, business logic, analytics processing, notification management, and synchronization; PostgreSQL database for secure storage of user accounts, habits, activity logs, goals, and analytics data; responsive web application for desktop and browser usage; a mobile application for Android devices; IoT integration support for collecting data from wearable devices and smart sensors.
+
+The web client will provide users with access to dashboards, analytics, profile management, habit tracking, goal management, and administrative functionality. The administrative interface will allow system administrators to manage users, configure system parameters, review analytics, and moderate platform content.
+
+The mobile client will provide quick daily interaction with the platform, including habit completion, reminders, streak tracking, progress visualization, and push notifications. Synchronization between devices will occur through secure REST API communication with the backend server.
+
+The backend system will process habit statistics, calculate streaks, generate recommendations, manage notifications, and synchronize all user activity across devices.
+
+The system will also support basic IoT integration capabilities. Smart watches, fitness trackers, sleep monitoring devices, and smartphone sensors may provide data related to sleep duration, physical activity, step count, heart rate, or productivity patterns. This data will be synchronized with the backend infrastructure and used for analytics and recommendation generation.
+
+The initial release will support:
+
+• user registration and authentication;
+• Google OAuth authorization;
+• profile management;
+• habit creation and tracking;
+• goal management;
+• statistics and analytics dashboards;
+• reminder and notification systems;
+• gamification mechanics;
+• achievement and streak systems;
+• saved habit plans;
+• social sharing of routines;
+• administrator dashboards;
+• synchronization between web and mobile platforms;
+• integration with selected wearable devices and mobile sensors.
+
+All communication between clients, IoT devices, and backend services will use encrypted HTTPS/TLS connections to ensure data confidentiality and integrity.
+
+3.2 Scope of Subsequent Releases
+
+Future releases of LifeBalance will focus on deeper integration of artificial intelligence technologies to improve personalization, automation, predictive analytics, and user engagement.
+
+AI Applications
+
+Artificial intelligence can significantly improve the effectiveness of the LifeBalance platform by providing adaptive and personalized recommendations based on user behavior and long-term habit analysis.
+
+Potential AI-powered features include:
+• personalized lifestyle recommendations;
+• intelligent habit optimization;
+• burnout and stress risk prediction;
+• sleep quality prediction;
+• productivity pattern recognition;
+• adaptive reminder scheduling;
+• automatic generation of balanced daily routines;
+• conversational AI assistant for wellness guidance;
+• predictive analytics for user progress and motivation.
+
+The AI subsystem may analyze user activity patterns and dynamically suggest changes in sleep schedules, exercise frequency, work-rest balance, or productivity routines.
+
+Future versions may also include a chatbot assistant capable of answering questions about lifestyle balance, interpreting analytics, and helping users build sustainable habits.
+
+Data Collection
+
+To support machine learning functionality, the system will collect anonymized and consent-based behavioral and activity data.
+
+Collected data may include:
+• habit completion frequency;
+• streak duration;
+• daily activity statistics;
+• sleep schedules;
+• physical activity data from wearable devices;
+• productivity patterns;
+• reminder interaction statistics;
+• goal completion rates;
+• user engagement metrics;
+• historical analytics trends.
+
+IoT devices and smartphone sensors may provide additional biometric and behavioral information, including:
+• heart rate;
+• step count;
+• sleep duration;
+• activity intensity;
+• sedentary periods.
+
+All collected data will be processed according to privacy and consent policies. Personally identifiable information will be separated from analytical datasets whenever possible.
+
+AI Training and Usage Strategy
+
+The system will initially rely on existing AI APIs and pretrained machine learning services to accelerate development and reduce infrastructure complexity.
+
+The first AI features will most likely use:
+• OpenAI API;
+• Google AI services;
+• cloud-based analytics platforms;
+• pretrained recommendation models.
+
+As the platform accumulates sufficient anonymized user data, future releases may introduce custom fine-tuned recommendation models specialized for wellness and productivity analytics.
+
+A hybrid approach is expected to be the most effective:
+
+• pretrained models for natural language interaction and general recommendations;
+• custom lightweight models for user-specific habit prediction and analytics.
+
+This strategy minimizes infrastructure costs while still enabling advanced personalization and scalable AI integration.
+
+3.3 Limitations and Exclusions
+
+Several functional and technical limitations are intentionally present in the initial and future releases of the LifeBalance system.
+
+Technical Limitations
+
+The system depends on stable internet connectivity for synchronization, analytics generation, notifications, and IoT communication. Full offline functionality is intentionally excluded from the initial release due to synchronization complexity and infrastructure limitations.
+
+IoT integration depends on third-party wearable devices and external APIs. Compatibility with all devices cannot be guaranteed because manufacturers may restrict data access or modify their APIs.
+
+Real-time analytics and AI recommendation systems may require significant cloud computing resources. Performance may depend on external infrastructure providers and network conditions.
+
+AI-Related Limitations
+
+AI-generated recommendations are intended only for informational and motivational purposes. The system does not provide medical diagnosis, psychological treatment, or professional healthcare advice.
+
+Machine learning recommendations may occasionally generate inaccurate or suboptimal suggestions due to insufficient data, inconsistent user behavior, or model limitations.
+
+Custom AI model training may require large datasets and significant computational resources, therefore early releases will rely mostly on external AI APIs instead of fully self-trained models.
+
+Functional Exclusions
+
+Several features are intentionally excluded from the project scope:
+
+• direct medical diagnosis;
+• emergency health monitoring;
+• financial or insurance integrations;
+• social media platform functionality;
+• multiplayer competitive systems;
+• full offline synchronization;
+• support for unsupported wearable ecosystems;
+• advanced biometric analysis requiring certified medical devices.
+
+These exclusions were made to reduce development complexity, improve maintainability, minimize legal risks, and ensure that the project remains achievable within academic and technical constraints.
+
+The platform is focused primarily on lifestyle balance, habit tracking, and productivity improvement rather than becoming a complete healthcare or social networking system.
+
 
